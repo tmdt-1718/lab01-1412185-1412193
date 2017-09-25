@@ -4,7 +4,7 @@
 
 Thành viên:
 * [x] **1412193** Nguyễn Thái Học (1412193)
-* [x] **MSSV2** Tên sinh viên 2 (tên tài khoản github)
+* [x] **1412185** Trần Thiên Hoàng (1412185)
 
 URL: **URL hosting của bài tập**
 
