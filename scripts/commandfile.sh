@@ -1,3 +1,4 @@
+rm /webalbums/tmp/pids/server.pid
 bundle install
 rails db:create
 rails db:migrate
