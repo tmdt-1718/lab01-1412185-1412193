@@ -1,0 +1,19 @@
+// Place all the styles related to the albums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.fixImageContainer {
+  top: 0px;
+  padding: 10px;
+  position: absolute;
+  img {
+    width: 100%;
+  }
+}
+
+
+.ImageCover {
+  width: 100%;
+}
