@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users,
-  controllers: {
-     sessions: 'users/sessions'
-   }
+  devise_for :users,controllers: {
+     sessions: 'users/sessions',
+     registrations: 'users/registrations'
+  }
   resources :albums, only: [:index, :show]
   resources :blogs, only: [:index]
   resources :abouts, only: [:index]

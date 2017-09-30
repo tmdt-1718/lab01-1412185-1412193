@@ -87,7 +87,6 @@ body {
 
 
 .dropdown-menu {
-  left: -60px;
 }
 
 #loginContent {
@@ -108,5 +107,16 @@ body {
 
   .actions {
     line-height: 2rem;
+  }
+}
+
+
+.classImage{
+  margin-right: 1rem;
+  display: -webkit-inline-box;
+  width: 45px;
+  img {
+    border-radius: 13px;
+    width: 100%;
   }
 }
