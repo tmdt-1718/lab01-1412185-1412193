@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   controllers: {
      sessions: 'users/sessions'
    }
-  resources :albums, only: [:index]
+  resources :albums, only: [:index, :show]
   resources :blogs, only: [:index]
   resources :abouts, only: [:index]
 
