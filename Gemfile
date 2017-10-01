@@ -34,6 +34,8 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 # Gem bootstrap
 gem 'bootstrap', '~> 4.0.0.beta'
+gem 'summernote-rails'
+
 # Gem Jquery
 gem 'jquery-rails'
 # font awesome
