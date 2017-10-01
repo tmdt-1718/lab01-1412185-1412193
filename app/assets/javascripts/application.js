@@ -13,6 +13,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require summernote
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
@@ -22,27 +23,26 @@
 //alert(document.URL);
 //alert(window.location.href);
 
-var stringURL = window.location.href; // get the url page
-var URLalert = stringURL.split("/");
+
 
 //debugger
+/*$(document).on('turbolinks:load', function() {
+  var stringURL = window.location.href; // get the url page
+  var URLalert = stringURL.split("/");
 
-
-
-$(document).ready(function () {
-  switch (URLalert[3]) {
-    case "home":
-      $("a[homehight]").addClass("active");
-      break;
-    case "albums":
-      $("[albumshight]").addClass("active");
-      break;
-    case "blogs":
-      $("[blogshight]").addClass("active");
-      break;
-    case "about":
-      $("[AboutHight]").addClass("active");
-      break;
-    default:
-  }
-});
+    switch (URLalert[3]) {
+      case "home":
+        $("a[homehight]").addClass("active");
+        break;
+      case "albums":
+        $("[albumshight]").addClass("active");
+        break;
+      case "blogs":
+        $("[blogshight]").addClass("active");
+        break;
+      case "about":
+        $("[AboutHight]").addClass("active");
+        break;
+      default:
+    }
+}*/

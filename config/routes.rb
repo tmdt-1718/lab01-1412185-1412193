@@ -5,7 +5,7 @@ Rails.application.routes.draw do
      registrations: 'users/registrations'
   }
   resources :albums, only: [:index, :show]
-  resources :blogs, only: [:index]
+  resources :blogs
   resources :abouts, only: [:index]
 
   root to: "home#index"
