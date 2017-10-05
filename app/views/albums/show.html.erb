@@ -1,3 +1,57 @@
 <div class="my-4">
-  <h1>This is a show albums</h1>
+	<h1>This is a show albums</h1>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="/">Home</a>
+		</li>
+		<li class="breadcrumb-item active">Album</li>
+	</ol>
+	<h1>Album</h1>
+	<div class="container">
+		<div class="row">
+
+			<div class="card">
+				<img src="https://t00.deviantart.net/NSwFvL2j03EZdRnKdSVP_2cipEE=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre00/1d41/th/pre/i/2013/090/5/0/_tobiichi_origami__by_kazenokaze-d5zwljs.png" class="img-thumbnail img-responsive" style="height: 200px; width: 200px; display: block;" data-holder-rendered="true">
+				
+			</div>
+		</div>
+	</div>
+	<div>
+		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@mdo">Add Image</button>
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">New message</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<%= form_with(model: @image, local: true) do |f| %>
+					<div>
+						
+						<div class="modal-body">
+								<div class="form-group">
+									<%= f.label :imgurl , "Image"%>
+									<br />
+									<%= f.file_field :imgurl, autocomplete: "off", class: "btn btn-primary" %>
+								</div>
+								<%= f.hidden_field :album_id, :value => params[:id] %>
+						</div>
+
+						<div class="modal-footer">
+							<div class="actions">
+								<%= f.submit "Post", class: "btn btn-primary" %>
+							</div>
+							
+						</div>
+
+					</div>
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
 </div>

@@ -1,6 +1,7 @@
 class Image < ApplicationRecord
   belongs_to :album
-
-  has_attached_file :imgURL, styles: { large: "600x600",medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
-  validates_attachment_content_type :imgURL, content_type: /\Aimage\/.*\z/
+  
+  has_attached_file :imgurl, styles: { medium: "600x600>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
+  validates_attachment :imgurl, presence: true
+  do_not_validate_attachment_file_type :imgurl
 end
