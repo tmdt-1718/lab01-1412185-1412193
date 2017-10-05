@@ -1,0 +1,11 @@
+<p>
+  A new comment was posted for your
+  <%= link_to @Commentblog.blog.title, @Commentblog.blog %>
+</p>
+<blockquote>
+  <em><%= @Commentblog.commentcontent %></em>
+</blockquote>
+<p>
+  To reply to this comment, please visit the
+   <%= link_to "Blog page", @Commentblog.blog %>
+</p>

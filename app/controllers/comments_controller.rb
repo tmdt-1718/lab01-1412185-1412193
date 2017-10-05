@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
     begin
         @comment = current_user.comments.new(comment_params)
         @comment.save
+        CommentMailer.new_comment(@comment).deliver_now
         flash[:success] = "Comment is Posted ."
         redirect_to blogs_path
     rescue
