@@ -12,7 +12,7 @@
 
 			<div class="card">
 				<img src="https://t00.deviantart.net/NSwFvL2j03EZdRnKdSVP_2cipEE=/fit-in/700x350/filters:fixed_height(100,100):origin()/pre00/1d41/th/pre/i/2013/090/5/0/_tobiichi_origami__by_kazenokaze-d5zwljs.png" class="img-thumbnail img-responsive" style="height: 200px; width: 200px; display: block;" data-holder-rendered="true">
-				
+
 			</div>
 		</div>
 	</div>
@@ -29,12 +29,12 @@
 					</div>
 					<%= form_with(model: @image, local: true) do |f| %>
 					<div>
-						
+
 						<div class="modal-body">
 								<div class="form-group">
-									<%= f.label :imgurl , "Image"%>
+									<%= f.label :picture , "Image"%>
 									<br />
-									<%= f.file_field :imgurl, autocomplete: "off", class: "btn btn-primary" %>
+									<%= f.file_field :picture, autocomplete: "off", class: "btn btn-primary" %>
 								</div>
 								<%= f.hidden_field :album_id, :value => params[:id] %>
 						</div>
@@ -43,7 +43,7 @@
 							<div class="actions">
 								<%= f.submit "Post", class: "btn btn-primary" %>
 							</div>
-							
+
 						</div>
 
 					</div>

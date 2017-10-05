@@ -1,8 +1,6 @@
 class ImagesController < ApplicationController
-puts"11111111111111111111111111111"
 	def create
 		#begin
-			puts 
 			@image = Image.new(image_params)
 			puts "3333333333333333333333333333"
 			@image.save
@@ -18,8 +16,6 @@ puts"11111111111111111111111111111"
 	end
 	private
 	def image_params
-		puts"4444444444444444444444444444444"
-		params.require(:image).permit(:album_id, :imgurl)
-		puts"6666666666666666666666666"
+		params.require(:image).permit(:album_id, :picture)
 	end
 end
