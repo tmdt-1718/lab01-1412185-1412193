@@ -37,15 +37,12 @@
         }
     });
   }
-
-
 });*/
 
 
 
 $(document).on('turbolinks:load', function() {
   //upload image in description
-
     var maxLength = 150;
   	$('[data-content="DataTypeContent"]').each(function(){
   		var myStr = $(this).text();
@@ -55,16 +52,6 @@ $(document).on('turbolinks:load', function() {
   			$(this).empty().html(newStr + ' ...');
   		}
   	});
-    $('[breacum="about"]').css("color","");
-    $('[breacum="albums"]').css("color","");
-    $('[breacum="blogs"]').css("color","");
-    $('[breacum="home"]').css("color","");
-    
-    $('[breacum="about"]').css("color","black");
-    $('[breacum="albums"]').css("color","black");
-    $('[breacum="blogs"]').css("color","blue");
-    $('[breacum="home"]').css("color","black");
-
 
     $('#courrier-examen').summernote({
     lang: 'ko-KR',
@@ -75,7 +62,8 @@ $(document).on('turbolinks:load', function() {
                sendFile(files[i], this);
             }
       }
-  });
+    });
+
   //create record for attachment
   function sendFile(file, el) {
     data = new FormData();
