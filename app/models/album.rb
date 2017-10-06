@@ -5,6 +5,6 @@ class Album < ApplicationRecord
 
   has_attached_file :background, styles: { large: "600x600",medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :background, content_type: /\Aimage\/.*\z/
-
+  do_not_validate_attachment_file_type :background
 
 end

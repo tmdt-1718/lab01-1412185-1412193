@@ -51,10 +51,10 @@ ActiveRecord::Schema.define(version: 20170930225824) do
     t.integer "view", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "imgURL_file_name"
-    t.string "imgURL_content_type"
-    t.integer "imgURL_file_size"
-    t.datetime "imgURL_updated_at"
+    t.string "picture_file_name"
+    t.string "picture_content_type"
+    t.integer "picture_file_size"
+    t.datetime "picture_updated_at"
   end
 
   create_table "users", force: :cascade do |t|

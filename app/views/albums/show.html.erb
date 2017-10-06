@@ -1,3 +1,101 @@
 <div class="my-4">
-  <h1>This is a show albums</h1>
+	<h1>This is a show albums</h1>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<a href="/">Home</a>
+		</li>
+		<li class="breadcrumb-item active">Album</li>
+	</ol>
+	<h1>Album</h1>
+	<div class="container">
+		<div class="row">
+			<% @images.each do |img| %>
+			<div class="card">
+				<div class="hovereffect" data-holder-rendered="true">
+					<%=link_to image_tag(img.picture.url(:original),class: "img-thumbnail img-responsive", style:"height: 200px; width: 200px; display: block;"), img.picture.url(:original) %>
+					<div class="overlay">
+						<h2> Owner: <%= @album.user.name %> </h2>
+						<h1><i class="fa fa-eye" style="color:white">
+							<%= (img.view)/2 %>
+						</i>
+					</h1>
+					<p>
+						<a>
+							<%= link_to "View Image", controller:"images", action:"edit",id: img.id %>
+						</a>
+						
+							<% if @album.user_id==current_user.id %>
+							<a>
+							<%= link_to "Destroy", image_path(img.id), method: :DELETE, action: "delete", data: { confirm: "Are you sure? Your action will not be redo!"} %>
+							</a>
+							<% else %>
+							<a style="color: gray">
+							Delete
+						</a>
+							<%end%>
+						
+
+					</p>
+				</div>
+			</div>
+		</div>
+		<%end%>
+	</div>
+</div>
+
+<div class="row-1 py-2">
+	<% if @album.user_id==current_user.id %>
+	<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#newimage">Add Image</button>
+	<% end %>
+	<div class="modal fade" id="newimage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">New Image</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div> 
+				<%= form_with(model: @image, local: true) do |f| %>
+				<div>
+
+					<div class="modal-body">
+						<div class="form-group">
+							<%= f.label :picture , "Image"%>
+							<br />
+							<%= f.file_field :picture, autocomplete: "off", class: "btn btn-primary" %>
+						</div>
+						<%= f.hidden_field :album_id, :value => params[:id] %>
+					</div>
+
+					<div class="modal-footer">
+						<div class="actions">
+							<%= f.submit "Post", class: "btn btn-primary" %>
+						</div>
+
+					</div>
+
+				</div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="warning" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        nope
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 </div>
