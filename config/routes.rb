@@ -4,7 +4,8 @@ Rails.application.routes.draw do
      sessions: 'users/sessions',
      registrations: 'users/registrations'
   }
-  resources :albums, only: [:index, :show]
+  resources :albums
+  resources :images
   resources :blogs
   resources :abouts, only: [:index]
 

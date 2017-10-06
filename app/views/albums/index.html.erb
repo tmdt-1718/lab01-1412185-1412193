@@ -7,101 +7,70 @@
     </ol>
     <h1>Albums</h1>
 
-    <div class="card my-3">
+
+    <% @albums.each do |album| %>
+
+    <div class="card my-4">
         <div class="container-fluid">
-            <div class="row py-5">
-                <div class="fixImageContainer">
-                  <img class="bg-info" src="https://photo2.tinhte.vn/data/attachment-files/2017/09/4141337_CV.jpg" alt="">
+            <div class="row py-4">
+                <div class="fixImageContainer" style="display: block; height: 280px; width: 100%;">
+                    <%= image_tag(album.background.url(:original),class: "card-img-top")%>
                 </div>
                 <div class="col-3 mx-auto">
-                    <img class="rounded-circle img-fluid" src="http://boom-admin.herokuapp.com/img/people/men14.jpg">
+                    <%= image_tag(album.user.picture.url(:original),class: "rounded-circle img-fluid")%>
                 </div>
                 <div class="col-12 text-center">
-                    <h3>Horton Beasley</h3>
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-12 py-3" style="text-align:center;">
-                  <%= link_to album_path(1), class: "btn btn-primary" do%>
-                  Read More &rarr;
-                  <% end %>
-                </div>
-            </div>
-            <div class="row mb-2 justify-content-center">
-                <div class="col-sm text-center">
-                    <i class="fa fa-star"></i>
-                    <br>
-                    Saves
-                    <h4>17</h4>
-                </div>
-                <div class="col-sm text-center">
+                    <div class="alert alert-info">Posted on <%= album.updated_at %> by 
+                        <a href="#"><%= album.user.name %></a></div>
+                        <div class="row">
+                            <div class="col-12 py-2" style="text-align:center;">
+                              <%= link_to album_path(album.id), class: "btn btn-info" do%>
+                              View More &rarr;
+                              <% end %>
+                              <div class="row-1 py-2">
+                                  <span class="btn btn-outline-warning btn-sm">
+                                      nature
+                                  </span>
+                                  <span class="btn btn-outline-warning btn-sm">
+                                      infographic
+                                  </span>
+                              </div>
+                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="row justify-content-center">
+                <span class="col-sm text-center">
                     <i class="fa fa-heart"></i>
                     <br>
                     Likes
-                    <h4>9</h4>
-                </div>
-                <div class="col-sm text-center">
-                    <i class="fa fa-file-o"></i>
+                    <h4>
+                      N/A
+                    </h4>
+                </span>
+                <span class="col-sm text-center">
+                    <i class="fa fa-picture-o"></i>
                     <br>
-                    Posts
-                    <h4>45</h4>
-                </div>
-                <div class="col-sm text-center">
-                    <i class="fa fa-user"></i>
+                    Images
+                    <h4>
+                      <%= album.images.count %>
+                    </h4>
+                </span>
+                <span class="col-sm text-center">
+                    <i class="fa fa-eye"></i>
                     <br>
-                    Friends
-                    <h4>36</h4>
-                </div>
+                    View
+                    <h4>
+                    <%= (album.images.sum(:view))/2 %>
+                      
+                    </h4>
+                </span>
             </div>
         </div>
     </div>
+    <% end %>
 
-
-
-    <div class="card my-3">
-        <div class="container-fluid">
-            <div class="row py-5">
-                <div class="fixImageContainer">
-                  <img class="bg-info" src="https://photo2.tinhte.vn/data/attachment-files/2017/09/4141337_CV.jpg" alt="">
-                </div>
-                <div class="col-3 mx-auto">
-                    <img class="rounded-circle img-fluid" src="http://boom-admin.herokuapp.com/img/people/men14.jpg">
-                </div>
-                <div class="col-12 text-center">
-                    <h3>Horton Beasley</h3>
-                </div>
-            </div>
-            <div class="row mb-2">
-                <div class="col-12 py-3" style="text-align:center;">
-                  <a href="#" class="btn btn-primary">Read More &rarr;</a>
-                </div>
-            </div>
-            <div class="row mb-2 justify-content-center">
-                <div class="col-sm text-center">
-                    <i class="fa fa-star"></i>
-                    <br>
-                    Saves
-                    <h4>17</h4>
-                </div>
-                <div class="col-sm text-center">
-                    <i class="fa fa-heart"></i>
-                    <br>
-                    Likes
-                    <h4>9</h4>
-                </div>
-                <div class="col-sm text-center">
-                    <i class="fa fa-file-o"></i>
-                    <br>
-                    Posts
-                    <h4>45</h4>
-                </div>
-                <div class="col-sm text-center">
-                    <i class="fa fa-user"></i>
-                    <br>
-                    Friends
-                    <h4>36</h4>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+
+
