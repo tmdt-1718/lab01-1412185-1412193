@@ -1,0 +1,76 @@
+<div class="my-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/">Home</a>
+        </li>
+        <li class="breadcrumb-item active">Blogs</li>
+    </ol>
+    <% if @blogs.count > 0 %>
+      <% @blogs.each do |blog| %>
+      <div class="card mb-4">
+          <div class="imageBlogS">
+            <%= image_tag(blog.backgroundblog.url(:original),class: "card-img-top")%>
+          </div>
+          <div class="card-body">
+              <h2 class="card-title"><%= blog.title %></h2>
+              <div class="card-text mb-4" data-content="DataTypeContent">
+                <%= blog.content.html_safe() %> ...
+              </div>
+              <div class="">
+                <%=link_to blog_path(blog.id), class: 'btn btn-primary' do%>
+                  Read More &rarr;
+                <% end %>
+              </div>
+          </div>
+          <div class="card-footer text-muted">
+              <div class="mb-3">
+                  Posted on <%= blog.updated_at %> by
+                <a href="#">
+                  <div class="classImageSblog">
+                  <%= image_tag(blog.user.picture.url(:thumb)) %>
+                  </div>
+                  <%= blog.user.name %>
+                </a>
+              </div>
+              <div class="row mb-2 justify-content-center">
+                  <div class="col-sm text-center">
+                      <i class="fa fa-eye"></i>
+                      <br>
+                      View
+                      <h6><%= blog.view %></h6>
+                  </div>
+                  <div class="col-sm text-center">
+                      <i class="fa fa-comments"></i>
+                      <br>
+                      Comments
+                      <h6><%= blog.comments.count %></h6>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <% end %>
+    <% else %>
+      <div class="mb-4">
+        <div class="" style="text-align: center;">
+          <h2>No one posted anything</h2>
+          <% if @checking_user %>
+          <h6>You want to post ?
+            <small>You should
+              <%= link_to new_blog_path do %>
+                Post in here
+              <% end %>
+            </small>
+          </h6>
+          <% else %>
+          <h6>You want to post ?
+            <small>You should
+              <%= link_to new_user_session_path do %>
+                login
+              <% end %>
+            </small>
+          </h6>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+</div>

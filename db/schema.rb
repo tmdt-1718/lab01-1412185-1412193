@@ -10,9 +10,73 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20170930225824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "albums", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "background_file_name"
+    t.string "background_content_type"
+    t.integer "background_file_size"
+    t.datetime "background_updated_at"
+  end
+
+  create_table "blogs", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "title"
+    t.integer "view", default: 0, null: false
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "backgroundblog_file_name"
+    t.string "backgroundblog_content_type"
+    t.integer "backgroundblog_file_size"
+    t.datetime "backgroundblog_updated_at"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.integer "blog_id"
+    t.integer "user_id"
+    t.text "commentcontent"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer "album_id"
+    t.integer "view", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "picture_file_name"
+    t.string "picture_content_type"
+    t.integer "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.inet "current_sign_in_ip"
+    t.inet "last_sign_in_ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "picture_file_name"
+    t.string "picture_content_type"
+    t.integer "picture_file_size"
+    t.datetime "picture_updated_at"
+    t.string "name"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
 
 end

@@ -28,10 +28,19 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# Gem bootstrap
+gem 'bootstrap', '~> 4.0.0.beta'
+gem 'summernote-rails'
+
+# Gem Jquery
+gem 'jquery-rails'
+# font awesome
+gem "font-awesome-rails"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -39,6 +48,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'devise'
+  gem "paperclip", "~> 5.0.0"
 end
 
 group :development do
