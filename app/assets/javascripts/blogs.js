@@ -37,15 +37,12 @@
         }
     });
   }
-
-
 });*/
 
 
 
 $(document).on('turbolinks:load', function() {
   //upload image in description
-
     var maxLength = 150;
   	$('[data-content="DataTypeContent"]').each(function(){
   		var myStr = $(this).text();
@@ -56,8 +53,6 @@ $(document).on('turbolinks:load', function() {
   		}
   	});
 
-
-
     $('#courrier-examen').summernote({
     lang: 'ko-KR',
     height: 300,
@@ -67,7 +62,8 @@ $(document).on('turbolinks:load', function() {
                sendFile(files[i], this);
             }
       }
-  });
+    });
+
   //create record for attachment
   function sendFile(file, el) {
     data = new FormData();

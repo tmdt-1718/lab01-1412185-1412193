@@ -4,6 +4,7 @@ class AlbumsController < ApplicationController
   # order('updated_at ASC')
   def index
   	@albums = Album.all
+    @checking_user = user_signed_in?
   end
 
 
@@ -20,7 +21,8 @@ class AlbumsController < ApplicationController
   end
 
   def show
-    @album = Album.find(params[:id]) 
+    @checking_user = user_signed_in?
+    @album = Album.find(params[:id])
     @image = Image
     @images = Album.find(params[:id]).images.all.order('created_at ASC')
   end
@@ -29,7 +31,7 @@ class AlbumsController < ApplicationController
   	@album = Album.new
   end
 
-  
+
 
   private
   def set_album
