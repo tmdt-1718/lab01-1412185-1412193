@@ -55,7 +55,15 @@ $(document).on('turbolinks:load', function() {
   			$(this).empty().html(newStr + ' ...');
   		}
   	});
-
+    $('[breacum="about"]').css("color","");
+    $('[breacum="albums"]').css("color","");
+    $('[breacum="blogs"]').css("color","");
+    $('[breacum="home"]').css("color","");
+    
+    $('[breacum="about"]').css("color","black");
+    $('[breacum="albums"]').css("color","black");
+    $('[breacum="blogs"]').css("color","blue");
+    $('[breacum="home"]').css("color","black");
 
 
     $('#courrier-examen').summernote({
