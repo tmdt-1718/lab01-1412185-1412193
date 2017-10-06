@@ -45,6 +45,19 @@
 
 $(document).on('turbolinks:load', function() {
   //upload image in description
+
+    var maxLength = 150;
+  	$('[data-content="DataTypeContent"]').each(function(){
+  		var myStr = $(this).text();
+  		if($.trim(myStr).length > maxLength){
+  			var newStr = myStr.substring(0, maxLength);
+  			var removedStr = myStr.substring(maxLength, $.trim(myStr).length);
+  			$(this).empty().html(newStr + ' ...');
+  		}
+  	});
+
+
+
     $('#courrier-examen').summernote({
     lang: 'ko-KR',
     height: 300,
