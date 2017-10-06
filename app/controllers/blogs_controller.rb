@@ -5,9 +5,13 @@ class BlogsController < ApplicationController
   # order('updated_at ASC')
   def index
     @blogs = Blog.all
+    @checking_user = user_signed_in?
   end
 
   def show
+    @blog.update(view: @blog.view + 1)
+    @checking_user = user_signed_in?
+    @comment = Comment
   end
 
   def new
@@ -26,6 +30,8 @@ class BlogsController < ApplicationController
 		end
   end
 
+
+
   private
     def set_blog
       @blog = Blog.find(params[:id])
@@ -35,5 +41,9 @@ class BlogsController < ApplicationController
     # khuc nay dung de xet lai
     def blog_params
       params.require(:blog).permit(:title, :content, :backgroundblog)
+    end
+
+    def view_update
+
     end
 end

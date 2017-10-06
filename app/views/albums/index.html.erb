@@ -1,76 +1,86 @@
 <div class="my-4">
     <ol class="breadcrumb">
         <li class="breadcrumb-item">
-            <a href="#">Home</a>
+            <a href="/">Home</a>
         </li>
-        <li class="breadcrumb-item active">Library</li>
+        <li class="breadcrumb-item active">Albums</li>
     </ol>
-    <h1>Albums</h1>
-
-
-    <% @albums.each do |album| %>
-
-    <div class="card my-4">
+    <% if @albums.count > 0 %>
+      <% @albums.each do |album| %>
+      <div class="card my-3">
         <div class="container-fluid">
-            <div class="row py-4">
-                <div class="fixImageContainer" style="display: block; height: 280px; width: 100%;">
-                    <%= image_tag(album.background.url(:original),class: "card-img-top")%>
+            <div class="row py-5">
+                <div class="fixImageContainer" style="height:250px; color:white;">
+                  <%= image_tag(album.background.url(:original),class: "bg-info fixAvatar")%>
                 </div>
                 <div class="col-3 mx-auto">
                     <%= image_tag(album.user.picture.url(:original),class: "rounded-circle img-fluid")%>
                 </div>
+            </div>
+            <div class="row mb-2 mt-2">
                 <div class="col-12 text-center">
-                    <div class="alert alert-info">Posted on <%= album.updated_at %> by 
-                        <a href="#"><%= album.user.name %></a></div>
-                        <div class="row">
-                            <div class="col-12 py-2" style="text-align:center;">
-                              <%= link_to album_path(album.id), class: "btn btn-info" do%>
-                              View More &rarr;
-                              <% end %>
-                              <div class="row-1 py-2">
-                                  <span class="btn btn-outline-warning btn-sm">
-                                      nature
-                                  </span>
-                                  <span class="btn btn-outline-warning btn-sm">
-                                      infographic
-                                  </span>
-                              </div>
-                              
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="row justify-content-center">
-                <span class="col-sm text-center">
+                    <h3><%= album.user.name %></h3>
+                </div>
+                <div class="col-12 py-3" style="text-align:center;">
+                  <%= link_to album_path(album.id), class: "btn btn-info" do%>
+                                View More &rarr;
+                  <% end %>
+                </div>
+                <div class="col-12 py-2 text-center">
+                    <span class="btn btn-outline-warning btn-sm">
+                        nature
+                    </span>
+                    <span class="btn btn-outline-warning btn-sm">
+                        infographic
+                    </span>
+                </div>
+            </div>
+            <div class="row mb-2 justify-content-center">
+                <div class="col-sm text-center">
                     <i class="fa fa-heart"></i>
                     <br>
                     Likes
-                    <h4>
-                      N/A
-                    </h4>
-                </span>
-                <span class="col-sm text-center">
+                    <h6>N/A</h6>
+                </div>
+                <div class="col-sm text-center">
                     <i class="fa fa-picture-o"></i>
                     <br>
                     Images
-                    <h4>
-                      <%= album.images.count %>
-                    </h4>
-                </span>
-                <span class="col-sm text-center">
+                    <h6><%= album.images.count %></h6>
+                </div>
+                <div class="col-sm text-center">
                     <i class="fa fa-eye"></i>
                     <br>
                     View
-                    <h4>
-                    <%= (album.images.sum(:view))/2 %>
-                      
-                    </h4>
-                </span>
+                    <h6><%= (album.images.sum(:view))/2 %></h6>
+                </div>
             </div>
         </div>
     </div>
+      <% end %>
+    <% else %>
+      <div class="mb-4">
+        <div class="" style="text-align: center;">
+          <h2>No one posted Ablum</h2>
+          <% if @checking_user %>
+          <h6>You want to create Album ?
+            <small>You should
+              <%= link_to new_album_path do %>
+                Crete Album in here
+              <% end %>
+            </small>
+          </h6>
+          <% else %>
+          <h6>You want to post ?
+            <small>You should
+              <%= link_to new_user_session_path do %>
+                login
+              <% end %>
+            </small>
+          </h6>
+          <% end %>
+        </div>
+      </div>
     <% end %>
 
 </div>
-
-
