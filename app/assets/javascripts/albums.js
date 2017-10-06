@@ -6,6 +6,7 @@
 $(function() {
   $('#pictureInput').on('change', function(event) {
     var files = event.target.files;
+
     var image = files[0]
     var reader = new FileReader();
     reader.onload = function(file) {
@@ -17,5 +18,6 @@ $(function() {
     reader.readAsDataURL(image);
     console.log(files);
   });
+  $('[data-toggle="popover"]').popover()
 });
 */

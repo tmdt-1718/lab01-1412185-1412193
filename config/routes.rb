@@ -5,7 +5,7 @@ Rails.application.routes.draw do
      registrations: 'users/registrations'
   }
   resources :albums
-  resources :images, only: [:create]
+  resources :images
   resources :blogs
   resources :abouts, only: [:index]
 

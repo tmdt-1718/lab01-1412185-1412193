@@ -22,7 +22,7 @@ class AlbumsController < ApplicationController
   def show
     @album = Album.find(params[:id]) 
     @image = Image
-    
+    @images = Album.find(params[:id]).images.all.order('created_at ASC')
   end
 
   def new

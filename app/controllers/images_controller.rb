@@ -1,18 +1,30 @@
 class ImagesController < ApplicationController
 	def create
-		#begin
+		begin
 			@image = Image.new(image_params)
-			puts "3333333333333333333333333333"
 			@image.save
-			puts @image.errors.full_messages
-		#	flash[:success] = "Images is Posted ."
-		#	puts "777777777777777777777777777777"
-			redirect_to albums_path
-   	 	#rescue
-   	 	#	puts "55555555555555555555555555"
-		#	flash[:error] = "Posted Images is failed! Please try again"
-		#	redirect_to albums_path
-		#end
+			flash[:success] = "Images is Posted ."
+   	 	rescue
+			flash[:error] = "Posted Images is failed! Please try again"
+		end
+		redirect_to controller: "albums", action:"show", id: @image.album_id
+	end
+
+	def edit
+		@image = Image.find(params[:id])
+		@image.update(view: @image.view + 1)
+		redirect_to @image.picture.url(:original)
+	end
+
+	def destroy
+		@path = Image.find(params[:id]).album_id
+		@image = Image.find(params[:id])
+		@image.destroy
+		flash[:success] = "Images deleted successfuly"
+		redirect_to album_path(@path)
+	end
+
+def show
 	end
 	private
 	def image_params
