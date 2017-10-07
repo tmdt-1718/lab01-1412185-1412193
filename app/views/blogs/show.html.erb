@@ -12,7 +12,28 @@
         </ol>
         <hr>
         <!-- Title -->
-        <h1 class="mt-4"><%= @blog.title %></h1>
+        <div class="row">
+          <% if @checking_user %>
+            <% if @blog.user_id==current_user.id %>
+              <div class="col-md-8">
+                <h1 class="mt-4"><%= @blog.title %></h1>
+              </div>
+              <div class="col-md-4 my-4">
+                  <%= link_to edit_blog_path, class: "btn btn-danger" do %>
+                    Edit
+                  <% end %>
+              </div>
+            <% else %>
+              <div class="col-md-12">
+                <h1 class="mt-4"><%= @blog.title %></h1>
+              </div>
+            <% end %>
+          <% else %>
+            <div class="col-md-12">
+              <h1 class="mt-4"><%= @blog.title %></h1>
+            </div>
+          <% end %>
+        </div>
 
         <!-- Author -->
         <p class="lead">
