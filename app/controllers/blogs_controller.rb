@@ -8,6 +8,9 @@ class BlogsController < ApplicationController
     @checking_user = user_signed_in?
   end
 
+  def edit
+  end
+
   def show
     @blog.update(view: @blog.view + 1)
     @checking_user = user_signed_in?
@@ -30,8 +33,16 @@ class BlogsController < ApplicationController
 		end
   end
 
-
-
+  def update
+      if @blog.update(blogupdate_params)
+        flash[:success] = "Updated is successfully."
+        render :show
+      else
+        flash[:error] = "Updated is fail ! Please try again"
+        render :show
+      end
+  end
+  
   private
     def set_blog
       @blog = Blog.find(params[:id])
@@ -41,6 +52,10 @@ class BlogsController < ApplicationController
     # khuc nay dung de xet lai
     def blog_params
       params.require(:blog).permit(:title, :content, :backgroundblog)
+    end
+
+    def blogupdate_params
+      params.require(:blog).permit(:title, :content)
     end
 
     def view_update

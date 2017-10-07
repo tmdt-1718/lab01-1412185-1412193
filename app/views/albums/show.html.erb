@@ -15,11 +15,11 @@
 					<%=link_to image_tag(img.picture.url(:original),class: "img-thumbnail img-responsive", style:"height: 200px; width: 200px; display: block;"), img.picture.url(:original) %>
 					<div class="overlay" style="font-size:8px;">
 						<div class="mt-4">
-							<h6>
+							<h3>
 								<i class="fa fa-eye" style="color:white">
 									<%= (img.view)/2 %>
 								</i>
-							</h6>
+							</h3>
 						</div>
 						<div class="mt-4">
 							<p>
@@ -32,9 +32,6 @@
 										<%= link_to "Destroy", image_path(img.id), method: :DELETE, action: "delete", data: { confirm: "Are you sure? Your action will not be redo!"} %>
 									</a>
 									<% else %>
-										<a style="color: gray">
-											Delete
-										</a>
 									<%end%>
 								<% end %>
 							</p>
