@@ -11,7 +11,7 @@ lý do cũng vì tụi em vẫn chưa thuần thục git nên có gì thầy th�
 Công sức tụi em đã làm ở dưới ! Cảm ơn 
 
 URL: **https://damp-sierra-51788.herokuapp.com/**
-(Thưa thầy tụi em đã host lên được nhưng có 1 số chức năng như Gửi email tụi em đã là dưới local nhưng khi lên host nó không gửi email nữa  ! Thầy có thể coi clip của tụi em để xem chức năng gửi email nhé và khi host có 1 số chức năng như thông báo nó khác với những gì ở dưới local. Mong thầy bỏ qua)
+(Em chia gửi email ra thành 2 class mailer thì cái class login khi up lên heroku thì vẫn gửi dc nhưng cái mailer kia nó lại không gửi comment thầy có thể vô clip để coi demo ở local thì nó ok)
 
 ## Yêu cầu
 
