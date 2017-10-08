@@ -10,7 +10,7 @@ Tụi em clone về với tài khoản MSSV nhưng khi làm push thì lên thì 
 lý do cũng vì tụi em vẫn chưa thuần thục git nên có gì thầy thông cảm chấp nhận 
 Công sức tụi em đã làm ở dưới ! Cảm ơn 
 
-URL: **(Chưa hosting được)**
+URL: **https://damp-sierra-51788.herokuapp.com/**
 
 ## Yêu cầu
 
