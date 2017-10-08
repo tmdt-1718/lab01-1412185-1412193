@@ -6,6 +6,10 @@ Thành viên:
 * [x] **1412193** Nguyễn Thái Học (1412193 - NguyenThaiHoc1)
 * [x] **1412185** Trần Thiên Hoàng (1412185 - conclave0)
 
+Tụi em clone về với tài khoản MSSV nhưng khi làm push thì lên thì nó lại ra tài khoản cũ của tụi em 
+lý do cũng vì tụi em vẫn chưa thuần thục git nên có gì thầy thông cảm chấp nhận 
+Công sức tụi em đã làm ở dưới ! Cảm ơn 
+
 URL: **(Chưa hosting được)**
 
 ## Yêu cầu
